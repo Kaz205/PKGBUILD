@@ -1,5 +1,5 @@
 pkgbase=linux-cyan
-pkgver=5.11.19.arch1
+pkgver=5.11.22.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
