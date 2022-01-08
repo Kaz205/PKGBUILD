@@ -8,7 +8,7 @@ arch=(x86_64)
 license=(GPL2)
 makedepends=(
   bc kmod libelf pahole cpio perl tar xz
-  git
+  git clang llvm
 )
 options=('!strip')
 _srcname=archlinux-linux
@@ -25,6 +25,9 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 
 prepare() {
   cd $_srcname
+
+  # Use Clang
+  export LLVM=1
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
