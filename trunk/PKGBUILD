@@ -8,7 +8,7 @@ arch=(x86_64)
 license=(GPL2)
 makedepends=(
   bc kmod libelf pahole cpio perl tar xz
-  git clang llvm
+  git clang llvm wget
 )
 options=('!strip')
 _srcname=archlinux-linux
@@ -26,8 +26,11 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 prepare() {
   cd $_srcname
 
-  # Use Clang
+  # Use Clang r445002
+  wget https://github.com/Kaz205/clang-releases/releases/download/clang-r445002/clang-r445002.tar.xz
+  tar -I xz -xf clang-r445002.tar.xz
   export LLVM=1
+  export PATH="clang-r445002/bin:$PATH"
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
