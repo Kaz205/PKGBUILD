@@ -8,7 +8,7 @@ arch=(x86_64)
 license=(GPL2)
 makedepends=(
   bc kmod libelf pahole cpio perl tar xz
-  git clang llvm wget
+  git wget
 )
 options=('!strip')
 _srcname=archlinux-linux
