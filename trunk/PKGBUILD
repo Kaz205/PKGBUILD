@@ -26,11 +26,11 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 prepare() {
   cd $_srcname
 
-  # Use Clang r450784
-  wget https://github.com/Kaz205/clang-releases/releases/download/clang-r450784/clang-r450784.tar.xz
-  tar -I xz -xf clang-r450784.tar.xz
+  # Use Clang r450784b
+  wget https://github.com/Kaz205/clang-releases/releases/download/clang-r450784b/clang-r450784b.tar.xz
+  tar -I xz -xf clang-r450784b.tar.xz
   export LLVM=1
-  export PATH="clang-r450784/bin:$PATH"
+  export PATH="clang-r450784b/bin:$PATH"
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
