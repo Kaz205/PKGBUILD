@@ -22,19 +22,19 @@ sha256sums=('SKIP')
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
+export CLANG_VERSION=clang-r450784c
 
 prepare() {
   cd $_srcname
 
-  # Use Clang r450784c
-  if ! [ -d "clang-r450784c" ]
+  if ! [ -d $CLANG_VERSION ]
   then
-    wget https://github.com/Kaz205/clang-releases/releases/download/clang-r450784c/clang-r450784c.tar.xz
-    tar -I xz -xf clang-r450784c.tar.xz
+    wget https://github.com/Kaz205/clang-releases/releases/download/$CLANG_VERSION/$CLANG_VERSION.tar.xz
+    tar -I xz -xf $CLANG_VERSION.tar.xz
   fi
 
   export LLVM=1
-  export PATH="clang-r450784c/bin:$PATH"
+  export PATH="$CLANG_VERSION/bin:$PATH"
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
