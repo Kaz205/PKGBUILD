@@ -27,8 +27,12 @@ prepare() {
   cd $_srcname
 
   # Use Clang r450784c
-  wget https://github.com/Kaz205/clang-releases/releases/download/clang-r450784c/clang-r450784c.tar.xz
-  tar -I xz -xf clang-r450784c.tar.xz
+  if ! [ -d "clang-r450784c" ]
+  then
+    wget https://github.com/Kaz205/clang-releases/releases/download/clang-r450784c/clang-r450784c.tar.xz
+    tar -I xz -xf clang-r450784c.tar.xz
+  fi
+
   export LLVM=1
   export PATH="clang-r450784c/bin:$PATH"
 
