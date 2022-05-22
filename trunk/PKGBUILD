@@ -35,6 +35,7 @@ prepare() {
 
   export LLVM=1
   export PATH="$CLANG_VERSION/bin:$PATH"
+  git reset --hard
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
@@ -50,6 +51,11 @@ prepare() {
     patch -Np1 < "../$src"
   done
 
+  wget https://github.com/Kaz205/linux/commit/5b6a631f49c5dbc07839c4930e2ce804f6749e72.patch
+  wget https://github.com/Kaz205/linux/commit/49ae41e0984c867414523dde4ef2b7f681d3a119.patch
+  patch -p1 -R < 5b6a631f49c5dbc07839c4930e2ce804f6749e72.patch
+  patch -p1 -R < 49ae41e0984c867414523dde4ef2b7f681d3a119.patch
+
   echo "Setting config..."
   make archlinux_defconfig -j$(nproc --all)
 
@@ -60,6 +66,7 @@ prepare() {
 build() {
   cd $_srcname
   make all -j$(nproc --all)
+  git reset --hard
 }
 
 _package() {
