@@ -1,6 +1,6 @@
 pkgbase=linux-9370
 pkgver=5.18.19.arch1
-pkgrel=5
+pkgrel=2
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
 url="https://github.com/Kaz205/linux"
