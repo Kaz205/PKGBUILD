@@ -1,5 +1,5 @@
 pkgbase=linux-9370
-pkgver=6.1.3.arch1
+pkgver=6.2.6.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
@@ -13,7 +13,7 @@ makedepends=(
 options=('!strip')
 _srcname=archlinux-linux
 source=(
-  "$_srcname::git+https://github.com/Kaz205/linux#branch=6.1"
+  "$_srcname::git+https://github.com/Kaz205/linux#branch=6.2"
 )
 validpgpkeys=(
 )
