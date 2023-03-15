@@ -36,8 +36,6 @@ prepare() {
   export LLVM=1
   export PATH="$CLANG_VERSION/bin:$PATH"
   git reset --hard
-  make clean -j$(nproc --all)
-  make mrproper -j$(nproc --all)
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
