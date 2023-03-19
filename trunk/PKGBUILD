@@ -1,6 +1,6 @@
 pkgbase=linux-9370
 pkgver=6.2.6.arch1
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
 url="https://github.com/Kaz205/linux"
@@ -22,19 +22,12 @@ sha256sums=('SKIP')
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
-export CLANG_VERSION=clang-r475365b
 
 prepare() {
   cd $_srcname
 
-  if ! [ -d $CLANG_VERSION ]
-  then
-    wget https://github.com/Kaz205/clang-releases/releases/download/$CLANG_VERSION/$CLANG_VERSION.tar.xz
-    tar -I xz -xf $CLANG_VERSION.tar.xz
-  fi
-
   export LLVM=1
-  export PATH="$CLANG_VERSION/bin:$PATH"
+  export PATH="$HOME/llvm-16.0.0/bin:$PATH"
   git reset --hard
 
   echo "Setting version..."
