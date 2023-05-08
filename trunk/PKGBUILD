@@ -1,6 +1,6 @@
 pkgbase=linux-9370
 pkgver=6.3.arch1
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
 url="https://github.com/Kaz205/linux"
@@ -32,7 +32,7 @@ prepare() {
   cd $_srcname
 
   export LLVM=1
-  export PATH="$HOME/llvm-16.0.2/bin:$PATH"
+  export PATH="$HOME/llvm-16.0.3/bin:$PATH"
   git reset --hard
 
   echo "Setting version..."
