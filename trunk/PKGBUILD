@@ -1,5 +1,5 @@
 pkgbase=linux-9370
-pkgver=6.4_rc5.arch1
+pkgver=6.4_rc7.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
