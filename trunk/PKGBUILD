@@ -1,5 +1,5 @@
-pkgbase=linux-9370
-pkgver=6.4_rc7.arch1
+pkgbase=linux-desktop
+pkgver=6.6.1.arch1
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-${pkgver##*.}
@@ -13,7 +13,7 @@ makedepends=(
 options=('!strip' '!buildflags' '!makeflags')
 _srcname=archlinux-linux
 source=(
-  "$_srcname::git+https://github.com/Kaz205/linux#branch=6.4"
+  "$_srcname::git+https://github.com/Kaz205/linux#branch=6.6"
 )
 validpgpkeys=(
 )
@@ -32,7 +32,7 @@ prepare() {
   cd $_srcname
 
   export LLVM=1
-  export PATH="$HOME/llvm-16.0.6/bin:$PATH"
+  export PATH="$HOME/llvm-17.0.4/bin:$PATH"
   git reset --hard
 
   echo "Setting version..."
@@ -86,7 +86,7 @@ _package() {
     DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
-  rm "$modulesdir"/{source,build}
+  rm "$modulesdir"/build
 }
 
 pkgname=("$pkgbase")
