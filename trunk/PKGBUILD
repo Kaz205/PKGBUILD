@@ -1,5 +1,5 @@
 pkgbase=linux-desktop
-pkgver=6.10.2.arch1
+pkgver=6.11.7.arch1
 pkgrel=1
 pkgdesc='Linux'
 url='https://github.com/Kaz205/linux'
@@ -20,7 +20,7 @@ options=('!strip' '!buildflags' '!makeflags')
 _srcname=archlinux-linux
 _srctag=v${pkgver%.*}-${pkgver##*.}
 source=(
-  "$_srcname::git+https://github.com/Kaz205/linux#branch=6.10"
+  "$_srcname::git+https://github.com/Kaz205/linux#branch=6.11"
 )
 sha256sums=('SKIP')
 
